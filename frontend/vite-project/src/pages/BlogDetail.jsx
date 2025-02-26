@@ -67,6 +67,12 @@ const BlogDetail = () => {
       >
         X
       </button>
+
+      <button
+        onClick = {()=>navigate(`/blogs/update/${id}`)}
+      >
+        Edit
+      </button>
     </div>
   );
 };

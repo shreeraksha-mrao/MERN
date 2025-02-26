@@ -7,6 +7,7 @@ import About from './pages/About'
 import BlogDetail from './pages/BlogDetail'
 import AddBlog from './pages/addblog'
 import { useEffect, useRef } from 'react'
+import BlogEdit from './pages/BlogEdit'
 function App() {
   return (
     <Router>
@@ -17,6 +18,7 @@ function App() {
           <Route path = "/blogs/:id" element = {<BlogDetail />} />
           <Route path = "/about" element = {<About />} />
           <Route path = "/blogadder" element = {<AddBlog />} />
+          <Route path = "/blogs/update/:id" element = {<BlogEdit />} />
       </Routes>
   
     </Router>
