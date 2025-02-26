@@ -1,0 +1,22 @@
+.navbar ul{
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    list-style: none;    
+    cursor: pointer;
+}
+
+.navbar ul li:hover{
+    color: grey;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: white;
+}
+
+.navbar {
+    background: black;
+    padding: 1rem;
+    color: white;
+}
