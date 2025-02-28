@@ -9,6 +9,7 @@ import { connectDB } from './db/config.js';
 dotenv.config();
 
 const app = express();
+
 connectDB();
 
 app.use(cors({origin: frontendURL}));

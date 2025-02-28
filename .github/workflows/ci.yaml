@@ -1,0 +1,52 @@
+name: Docker Build and Push
+
+on:
+  push:
+    branches:
+      - main  # or any branch you want to trigger the CI/CD on
+  pull_request:
+    branches:
+      - main  # to trigger on pull requests too
+
+jobs:
+  build_and_push_frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and Push Frontend Docker Image
+        run: |
+          cd frontend/vite-project
+          docker build -t ybhatta2058/frontend-server-2 .
+          docker push ybhatta2058/frontend-server-2:latest
+
+  build_and_push_backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and Push Backend Docker Image
+        run: |
+          cd backend
+          docker build -t ybhatta2058/backend-server-again .
+          docker push ybhatta2058/backend-server-again
