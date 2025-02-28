@@ -29,7 +29,7 @@ app.use('/blogs',blogRouter);
 
 app.get('/health',customMiddleware,cm2,(req,res)=>{
     console.log("Server is healthy");
-    return res.json({message:"Server is healthy"});
+    return res.json({message:"Server is healthy yoooo"});
 });
 
 app.listen(port , ()=>{
